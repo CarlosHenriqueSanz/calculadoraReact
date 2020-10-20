@@ -12,6 +12,7 @@ function Display(props) {
 
 function Button(props) {
   return (
+
   <button onClick={props.click}>{props.text}</button>
   );
 }
@@ -162,11 +163,16 @@ class App extends Component{
 
   render() {
   return (
+
     <div className="App">
+      <div className="Titulo">
+        Minha primeira calculadora 
+      </div>
       <h1><Display value={this.state.previous}/></h1>
       <h1><Display value={this.state.currentOperand}/></h1>
 
       <div className="Bot">
+      
          <Button text="7" click={() => this.addNumber('7')}/>
         <Button text="8" click={() => this.addNumber('8')}/>
         <Button text="9" click={() => this.addNumber('9')}/>
