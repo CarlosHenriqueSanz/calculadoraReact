@@ -161,6 +161,29 @@ class App extends Component{
         );
       }
 
+      MCmemoria(elemento){
+        this.setState((state) => {
+          const {listaMem} = state;
+          let pilhaN;
+          pilhaN = listaMem.slice()
+          pilhaN.splice(pilhaN.indexOf(elemento), 1);
+          return{
+            listaMem: pilhaN
+          }
+        }
+        );
+      }
+
+      MRmemoria(elemento){ //retorna o valor adicionado na memoria  
+        this.setState((state) => {
+          return{
+            currentOperand: parseFloat(elemento)
+          }
+        }
+        );
+      }
+
+
   render() {
   return (
 
@@ -179,12 +202,14 @@ class App extends Component{
         <Button text="*" click={() => this.compute(this.state.currentOperand,'*')}/>
 
       </div>
+
       <div className="Bot">
          <Button text="4" click={() => this.addNumber('4')}/>
         <Button text="5" click={() => this.addNumber('5')}/>
         <Button text="6" click={() => this.addNumber('6')}/>
         <Button text="-" click={() => this.compute(this.state.currentOperand,'-')}/>
       </div>
+
       <div className="Bot">
           <Button text="1" click={() => this.addNumber('1')}/>  
          <Button text="2" click={() => this.addNumber('2')}/>
@@ -197,18 +222,23 @@ class App extends Component{
         <Button text="." click={() => this.addNumber(".")}/>
         <Button text="=" click={() => this.igual(this.state.currentOperand,this.state.previous,this.state.operation)}/>
         <Button text="/" click={() => this.compute(this.state.currentOperand,'/')}/>
+
       </div>
       <Button text="C" click={() => this.apaga()}/>
       <Button text="MC" click={() => this.MC()}/>
       <Button text="MR" click={() => this.MR()}/>
       <Button text="M+" click={() => this.Msoma()}/>
       <Button text="MS" click={() => this.MS()}/>
-
+      <p>  Memória </p>
       {
                 this.state.listaMem.map(
-                  (el) => <p>{el}</p>
+                  (elemento) =>
+                  <div> 
+                    {elemento} <Button text="MC" click={() => this.MCmemoria(elemento)}/> 
+                          <Button text="MR" click={() => this.MRmemoria(elemento)}/> 
+                  </div>
                 )
-              }
+      }
     </div>
   );
   }
