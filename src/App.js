@@ -198,11 +198,11 @@ class App extends Component{
         <Button text="=" click={() => this.igual(this.state.currentOperand,this.state.previous,this.state.operation)}/>
         <Button text="/" click={() => this.compute(this.state.currentOperand,'/')}/>
       </div>
-      {/* <Button text="C" click={() => this.apaga()}/>
+      <Button text="C" click={() => this.apaga()}/>
       <Button text="MC" click={() => this.MC()}/>
       <Button text="MR" click={() => this.MR()}/>
       <Button text="M+" click={() => this.Msoma()}/>
-      <Button text="MS" click={() => this.MS()}/> */}
+      <Button text="MS" click={() => this.MS()}/>
 
       {
                 this.state.listaMem.map(
