@@ -186,8 +186,8 @@ class App extends Component{
         <Button text="-" click={() => this.compute(this.state.currentOperand,'-')}/>
       </div>
       <div className="Bot">
-          <Button text="1" click={() => this.addNumber('3')}/>  
-         <Button text="2" click={() => this.addNumber('3')}/>
+          <Button text="1" click={() => this.addNumber('1')}/>  
+         <Button text="2" click={() => this.addNumber('2')}/>
          <Button text="3" click={() => this.addNumber('3')}/>
          <Button text="+" click={() => this.compute(this.state.currentOperand,'+')} />
       </div>
@@ -203,6 +203,7 @@ class App extends Component{
       <Button text="MR" click={() => this.MR()}/>
       <Button text="M+" click={() => this.Msoma()}/>
       <Button text="MS" click={() => this.MS()}/>
+
       {
                 this.state.listaMem.map(
                   (el) => <p>{el}</p>
